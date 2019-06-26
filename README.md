@@ -2,6 +2,7 @@
 
 To get things running...
 1) $bundle install --without production
+2) $rails db:migrate
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
