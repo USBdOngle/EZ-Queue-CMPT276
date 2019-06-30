@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get '/createroom' => 'rooms#new'
-  get '/createroom' => 'rooms#create'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #gives rest of program access to models
   resources :guests, :moderators, :rooms
   
 end
