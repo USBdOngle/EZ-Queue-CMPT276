@@ -14,7 +14,7 @@
   <body>
     <%= yield %>
     <div class="primary-content">
-        <button onclick="window.location.href='../create.html'" class="button">Create</button>
+         <%= link_to "Create", createroom_path, class: "button"%> 
         <button onclick="window.location.href='../join.html'" class="button">Join</button>
     </div><!-- End .primary-content-->
   </body>
