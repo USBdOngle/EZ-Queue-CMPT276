@@ -5,7 +5,7 @@ class RoomsCreateroomTest < ActionDispatch::IntegrationTest
   test "invalid (empty) password entered" do
     get createroom_path
     assert_no_difference 'Room.count' do
-      post rooms_path, params: { room: { accessCode: "xxxxxx", password: "   "} }
+      post rooms_path, params: { room: { accessCode: "xxxxx", password: "  "} }
     end
     assert_template 'rooms/new'
   end
@@ -18,5 +18,5 @@ class RoomsCreateroomTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'rooms/show'
   end
-  
+
 end

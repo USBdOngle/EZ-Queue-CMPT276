@@ -18,7 +18,6 @@ class RoomsController < ApplicationController
         end
     end
 
-
     private
 
         #returns randomly generated 6 character code
