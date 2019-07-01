@@ -8,12 +8,13 @@
   <body>
 
         <div class="primary-content">
-                <div class="col-md-6 col-md-offset-3">
+                <div class = "create-form">
                     <%= form_for(@room) do |f| %>
                         <%= render 'shared/room_error_messages' %>
-                        <%= f.label :password %>
-                        <%= f.text_field :password, class: 'form-control' %>
-                        <%= f.submit "Create Queue", class: "button" %>
+                        <%# <%= f.label :password %>
+                        <%= f.text_field :password, class: 'form-control', placeholder: "Password" %>
+                        <br>
+                        <%= f.submit "Create Queue", class: "button small-button" %>
                     <% end %>
                 </div>
         </div><!-- End .primary-content-->
