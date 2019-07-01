@@ -1,0 +1,15 @@
+current directory: /mnt/c/cmpt276/EZ-Queue-CMPT276/vendor/bundle/ruby/2.6.0/gems/bindex-0.7.0/ext/skiptrace
+/usr/share/rvm/rubies/ruby-2.6.1/bin/ruby -I /usr/share/rvm/rubies/ruby-2.6.1/lib/ruby/2.6.0 -r ./siteconf20190630-419-10bgbqo.rb extconf.rb
+creating Makefile
+
+current directory: /mnt/c/cmpt276/EZ-Queue-CMPT276/vendor/bundle/ruby/2.6.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /mnt/c/cmpt276/EZ-Queue-CMPT276/vendor/bundle/ruby/2.6.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.so
+
+current directory: /mnt/c/cmpt276/EZ-Queue-CMPT276/vendor/bundle/ruby/2.6.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cruby.so ./.gem.20190630-419-160wh15/skiptrace
