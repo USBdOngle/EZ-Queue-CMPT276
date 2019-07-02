@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/createroom' => 'rooms#create'
 
   get 'join' => 'pages#join'
+  get 'help' => 'pages#help'
   get 'loggedin' => 'pages#loggedin'
   get 'home' => 'pages#home'
   resources :guests, :moderators, :rooms
