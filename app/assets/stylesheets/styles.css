@@ -129,3 +129,13 @@ input[type=text] {
     color: grey;
     display: inline;
   }
+
+  .bottom-corner{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .bottom-corner:hover{
+    cursor: help;
+  }
