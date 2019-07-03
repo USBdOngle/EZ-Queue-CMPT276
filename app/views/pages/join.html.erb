@@ -11,20 +11,24 @@
 
             <div class = "form-left">
                 <h2>Guest</h2>
-                <form>
-                    <input type="text" name="accesscode" placeholder="Access Code"><br>
-                    <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
-                 </form>
+                <%= form_for(@guest) do |f| %>
+                        <%= render 'shared/guest_error_messages' %>
+                        <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
+                        <br>
+                        <%= f.submit "Join", class: "button small-button" %>
+                    <% end %>
             </div>
 
             <div class = "form-right">
                 <h2>Moderator</h2>
-                    <form>
-                        <input type="text" name="name" placeholder="Name"><br>
-                        <input type="text" name="accesscode" placeholder="Access Code"><br>
-                        <input type="text" name="password" placeholder="Password"><br>
-                        <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
-                     </form>
+                    <%= form_for(@mod) do |f| %>
+                        <%= render 'shared/mod_error_messages' %>
+                        <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+                        <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
+                        <%= f.text_field :virtual_password, class: 'form-control', placeholder: "Password" %>
+                        <br>
+                        <%= f.submit "Join", class: "button small-button" %>
+                    <% end %>
                 </div>
         </div><!-- End .primary-content-->
 

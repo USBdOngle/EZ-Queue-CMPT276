@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'help' => 'pages#help'
   get 'loggedin' => 'pages#loggedin'
   get 'home' => 'pages#home'
+  post 'join' => 'guests#create'
+  post 'join' => 'moderators#create'
   resources :guests, :moderators, :rooms
 
 end
