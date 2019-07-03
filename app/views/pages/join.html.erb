@@ -11,11 +11,16 @@
 
             <div class = "form-left">
                 <h2>Guest</h2>
-                <form>
-                    <input type="text" name="accesscode" placeholder="Access Code"><br>
-                    <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
-                 </form>
-            </div>
+                <input type="text" name="accesscode" placeholder="Access Code"><br>
+                    <%= form_for(@guest) do |f| %>
+                        <%= render 'shared/guest_error_messages' %>
+                        <%# <%= f.label :accessCode %>
+                        <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
+                        <br>
+                        <%= f.submit "Join", class: "button small-button" %>
+                        <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
+                    <% end %>
+              </div>
 
             <div class = "form-right">
                 <h2>Moderator</h2>
