@@ -24,7 +24,9 @@
                     <%= form_for(@mod) do |f| %>
                         <%= render 'shared/mod_error_messages' %>
                         <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+                        <br>
                         <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
+                        <br>
                         <%= f.text_field :virtual_password, class: 'form-control', placeholder: "Password" %>
                         <br>
                         <%= f.submit "Join", class: "button small-button" %>
