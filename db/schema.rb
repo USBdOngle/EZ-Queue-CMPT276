@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_214809) do
     t.string "accessCode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_moderators_on_name", unique: true
+    t.index ["name", "accessCode"], name: "index_moderators_on_name", unique: true
   end
 
   create_table "rooms", force: :cascade do |t|
