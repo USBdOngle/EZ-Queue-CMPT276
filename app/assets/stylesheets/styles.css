@@ -12,7 +12,7 @@ body {
         /* width: 50%; */
         padding: 10px;
         text-align: center;
-        padding-top: 200px;
+        padding-top: 150px;
         border-box: green 3px;
 }
 
@@ -138,4 +138,18 @@ input[type=text] {
 
   .bottom-corner:hover{
     cursor: help;
+  }
+
+.queue-position {
+  position: relative;
+}
+
+.queue-position p{
+    position: absolute;
+    font-family: 'Raleway', Arial, sans-serif;
+    color: #EA3C3C;
+    font-size: 36px;
+    top: 41%;
+    left: 53.5%;
+
   }

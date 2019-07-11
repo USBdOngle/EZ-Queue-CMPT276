@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'join' => 'pages#join'
   get 'help' => 'pages#help'
-  get 'loggedin' => 'pages#loggedin'
+  get 'guestlogin' => 'pages#guestlogin'
+  get 'modlogin' => 'pages#modlogin'
   get 'home' => 'pages#home'
   post 'join' => 'guests#create'
   post 'join' => 'moderators#create'

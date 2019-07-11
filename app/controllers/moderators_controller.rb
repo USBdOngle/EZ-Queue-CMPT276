@@ -12,7 +12,7 @@ class ModeratorsController < ApplicationController
         elsif !@mod.save
             render 'pages/join'
         else
-            redirect_to loggedin_url
+            redirect_to modlogin_url
         end
     end
 
