@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>Join</title>
     <link rel="stylesheet" href="../application.css">
     <meta name="viewport" content="width=device-width">
   </head>
@@ -11,26 +11,29 @@
 
             <div class = "form-left">
                 <h2>Guest</h2>
-                <input type="text" name="accesscode" placeholder="Access Code"><br>
-                    <%= form_for(@guest) do |f| %>
+                <%= form_for(:guest, url: join_path) do |f| %>
                         <%= render 'shared/guest_error_messages' %>
-                        <%# <%= f.label :accessCode %>
                         <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
                         <br>
                         <%= f.submit "Join", class: "button small-button" %>
-                        <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
                     <% end %>
-              </div>
+            </div>
 
             <div class = "form-right">
                 <h2>Moderator</h2>
-                    <form>
-                        <input type="text" name="name" placeholder="Name"><br>
-                        <input type="text" name="accesscode" placeholder="Access Code"><br>
-                        <input type="text" name="password" placeholder="Password"><br>
-                        <input type="button" value="Join" onclick="window.location.href='loggedin.html'">
-                     </form>
+                    <%= form_for(:moderator, url: login_path) do |f| %> 
+                        <%= render 'shared/mod_error_messages' %>
+                        <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+                        <br>
+                        <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
+                        <br>
+                        <%= f.text_field :virtual_password, class: 'form-control', placeholder: "Password" %>
+                        <br>
+                        <%= f.submit "Join", class: "button small-button" %>
+                    <% end %>
                 </div>
+                <button onclick = "window.location.href='../help.html'" class ="button small-button bottom-corner"> Help </button>
+                
         </div><!-- End .primary-content-->
 
   </body>
