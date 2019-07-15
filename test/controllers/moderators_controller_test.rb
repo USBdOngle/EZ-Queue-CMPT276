@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class ModeratorsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get new" do
+    get join_path
+    assert_response :success
+  end
 end

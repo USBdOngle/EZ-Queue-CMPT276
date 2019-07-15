@@ -1,4 +1,5 @@
 class ModeratorsController < ApplicationController
+    
     def create
         @mod = Moderator.new(mod_params)
         @guest = Guest.new ##need to create a new mod in case we get redirected back to join - guests/join requires it for form
@@ -12,7 +13,8 @@ class ModeratorsController < ApplicationController
         elsif !@mod.save
             render 'pages/join'
         else
-            redirect_to modlogin_url
+            log_in_mod @mod
+            redirect_to mod_url
         end
     end
 

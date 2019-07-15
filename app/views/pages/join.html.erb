@@ -11,7 +11,7 @@
 
             <div class = "form-left">
                 <h2>Guest</h2>
-                <%= form_for(@guest) do |f| %>
+                <%= form_for(:guest, url: join_path) do |f| %>
                         <%= render 'shared/guest_error_messages' %>
                         <%= f.text_field :accessCode, class: 'form-control', placeholder: "Access Code" %>
                         <br>
@@ -21,7 +21,7 @@
 
             <div class = "form-right">
                 <h2>Moderator</h2>
-                    <%= form_for(@mod) do |f| %>
+                    <%= form_for(:moderator, url: login_path) do |f| %> 
                         <%= render 'shared/mod_error_messages' %>
                         <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
                         <br>
