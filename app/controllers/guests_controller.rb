@@ -9,7 +9,7 @@ class GuestsController < ApplicationController
         elsif !@guest.save
             render 'pages/join'
         else
-            log_in @guest
+            log_in_guest @guest
             redirect_to guest_url
         end
     end
