@@ -42,6 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #Heroku uses PostgreSQL so in production we want to make sure that is what we're using
 group :production do
   gem 'pg'
+  gem 'redis'
 end
 
 group :development, :test do

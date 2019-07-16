@@ -6,7 +6,8 @@ class QueueController < ApplicationController
     end
 
     def guestQueue
-        @initialPos = Guest.where(accessCode: Guest.find_by(id: session[:guest_id]).accessCode).size.to_s
+        #this should be changed so it's based on the current position relative to everyone else
+        @initialPos = Guest.where(accessCode: Guest.find_by(id: cookies.signed[:guest_id]).accessCode).size.to_s 
     end
 
     private

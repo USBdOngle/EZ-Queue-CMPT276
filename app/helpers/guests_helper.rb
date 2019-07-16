@@ -1,11 +1,11 @@
 module GuestsHelper
     def log_in_guest(guest)
-        session[:guest_id] = guest.id
+        cookies.signed[:guest_id] = guest.id
     end
 
     def current_guest
-        if session[:guest_id]
-            @current_guest ||= Guest.find_by(id: session[:guest_id])
+        if cookies.signed[:guest_id]
+            @current_guest ||= Guest.find_by(id: cookies.signed[:guest_id])
         end
     end
 

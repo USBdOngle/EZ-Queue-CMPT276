@@ -15,4 +15,3 @@ App.queue = App.cable.subscriptions.create "QueueChannel",
         pos--
         docSection.innerHTML = pos
     
-  

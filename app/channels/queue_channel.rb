@@ -1,6 +1,7 @@
 class QueueChannel < ApplicationCable::Channel
+
   def subscribed
-    stream_from "queue_channel"
+    stream_from "queue_channel_#{queue_guest.accessCode}"
   end
 
   def unsubscribed
