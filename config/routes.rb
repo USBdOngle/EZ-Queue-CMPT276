@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   post 'login' => 'moderators#create'
 
   get 'guest' => 'queue#guestQueue'
-  get 'mod' => 'queue#modQueue'
+  get 'mod' => 'moderators#modQueue'
+  post 'next' => 'moderators#next'
+
+  mount ActionCable.server, at: '/cable'
 
   resources :guests, :moderators, :rooms
 

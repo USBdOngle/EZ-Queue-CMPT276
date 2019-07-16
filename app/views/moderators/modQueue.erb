@@ -8,7 +8,7 @@
   <body>
 
         <div class="primary-content">
-          <button onclick="window.location.href=#" class="button">Next</button>
+          <%= link_to 'Next', next_path, remote: true, method: :post, rel: "nofollow", :class => "button" %>
           <br>
           <br>
           <button onclick="window.location.href=#" class="button">Push to Back</button>

@@ -8,9 +8,9 @@
   <body>
 
         <div class="primary-content">
-            <div class = "queue-position">
+            <div id="queue-position" class = "queue-position">
               <%= image_tag("Shteve.PNG", :size => "406x400", :alt => "Steven says you are logged in")%>
-              <p>50</p>
+              <%= simple_format(@initialPos, id: "guest-position") %>
             </div>
               <br>
               <br>

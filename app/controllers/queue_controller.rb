@@ -6,6 +6,7 @@ class QueueController < ApplicationController
     end
 
     def guestQueue
+        @initialPos = Guest.where(accessCode: Guest.find_by(id: session[:guest_id]).accessCode).size.to_s
     end
 
     private

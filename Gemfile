@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'jquery-rails'
 #for testing controllers
 gem 'rails-controller-testing'
 #use bootstrap for beautiful webpages

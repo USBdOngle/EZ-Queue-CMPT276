@@ -18,6 +18,19 @@ class ModeratorsController < ApplicationController
         end
     end
 
+    def modQueue
+    end
+
+    def next
+        @mod = Moderator.find_by(id: session[:moderator_id]);
+        guestsInQueue = Guest.where(accessCode: @mod.accessCode)
+        if guestsInQueue.size > 0
+            logger.debug guestsInQueue.order(:created_at).first
+            guestsInQueue.order(:created_at).first.destroy #remove next person from the queue 
+            ActionCable.server.broadcast 'queue_channel', modName: @mod.name #broadcast mod name so it can be displayed if user pos is 1
+        end
+    end
+
     private
 
         def mod_params
