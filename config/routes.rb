@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   get 'join' => 'pages#join'
   get 'help' => 'pages#help'
-  get 'guestlogin' => 'pages#guestlogin'
-  get 'modlogin' => 'pages#modlogin'
   get 'home' => 'pages#home'
   
   get 'join' => 'guests#new'
@@ -14,6 +12,16 @@ Rails.application.routes.draw do
 
   get 'login' => 'moderators#new'
   post 'login' => 'moderators#create'
+
+  get 'guest' => 'queue#guestQueue'
+  get 'mod' => 'moderators#modQueue'
+  
+  post 'next' => 'moderators#next'
+
+  post 'shutdown' => 'moderators#shutdown'
+
+  mount ActionCable.server, at: '/cable'
+
   resources :guests, :moderators, :rooms
 
 end

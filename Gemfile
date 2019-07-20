@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'jquery-rails'
 #for testing controllers
 gem 'rails-controller-testing'
 #use bootstrap for beautiful webpages
@@ -41,6 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #Heroku uses PostgreSQL so in production we want to make sure that is what we're using
 group :production do
   gem 'pg'
+  gem 'redis'
 end
 
 group :development, :test do
@@ -68,3 +70,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+

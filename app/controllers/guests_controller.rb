@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
     def create
         @guest = Guest.new(guest_params)
-       @mod = Moderator.new #need to create a new mod in case we get redirected back to join - guests/join requires it for form
+        @mod = Moderator.new #need to create a new mod in case we get redirected back to join - guests/join requires it for form
 
         if !Room.exists?(@guest.accessCode)
             @guest.errors.add(:accessCode, message: "Cannot find access code.")
@@ -9,8 +9,8 @@ class GuestsController < ApplicationController
         elsif !@guest.save
             render 'pages/join'
         else
-            log_in @guest
-            redirect_to guestlogin_url
+            log_in_guest @guest
+            redirect_to guest_url
         end
     end
 

@@ -13,9 +13,31 @@ class ModeratorsController < ApplicationController
         elsif !@mod.save
             render 'pages/join'
         else
-            log_in @mod.accessCode
-            redirect_to modlogin_url
+            log_in_mod @mod
+            redirect_to mod_url
         end
+    end
+
+    def modQueue
+    end
+
+    def next
+        @mod = Moderator.find_by(id: session[:moderator_id]);
+        guestsInQueue = Guest.where(accessCode: @mod.accessCode)
+        if guestsInQueue.size > 0
+            logger.debug guestsInQueue.order(:created_at).first
+            guestsInQueue.order(:created_at).first.destroy #remove next person from the queue 
+            ActionCable.server.broadcast "queue_channel_#{@mod.accessCode}", modName: @mod.name #broadcast mod name so it can be displayed if user pos is 1
+        end
+    end
+    
+    def shutdown
+        redirect_to join_url
+     #  @mod = Moderator.new(mod_params)
+     #  @guest = Guest.new 
+     #  Room.find(@mod.accessCode).destroy
+        
+        
     end
 
     private
