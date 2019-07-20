@@ -5,17 +5,7 @@ class QueueController < ApplicationController
     def modQueue
     end
 
-    def shutdown
-        #  Room.delete(@mod.accessCode)
-        #  @mod.accessCode=nil
-        #  redirect_to join_url
-  
-          Moderator.find(@mod.accessCode).destroy
-          flash[:success] = "User deleted"
-          redirect_to join_url
-      
-    end
-
+ 
     def guestQueue
         #this should be changed so it's based on the current position relative to everyone else
         @initialPos = Guest.where(accessCode: Guest.find_by(id: cookies.signed[:guest_id]).accessCode).size.to_s 
