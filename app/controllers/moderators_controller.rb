@@ -1,5 +1,6 @@
 class ModeratorsController < ApplicationController
     
+
     def create
         @mod = Moderator.new(mod_params)
         @guest = Guest.new ##need to create a new mod in case we get redirected back to join - guests/join requires it for form
@@ -19,8 +20,15 @@ class ModeratorsController < ApplicationController
     end
 
     def modQueue
+        
     end
 
+    def shutdown
+        @mod = Moderator.find_by(id: session[:moderator_id]);
+        @guest = Guest.find_by(id: session[:guest_id]);
+        Room.delete((@mod.accessCode))
+        redirect_to join_url
+    end
     def next
         @mod = Moderator.find_by(id: session[:moderator_id]);
         guestsInQueue = Guest.where(accessCode: @mod.accessCode)
@@ -31,16 +39,6 @@ class ModeratorsController < ApplicationController
         end
     end
     
-    def shutdown
-        redirect_to join_url
-     #  @mod = Moderator.new(mod_params)
-     #  @guest = Guest.new 
-     #  Room.find(@mod.accessCode).destroy
-        
-        
-    end
-
-    private
 
         def mod_params
             params.require(:moderator).permit(:name, :accessCode, :virtual_password)
