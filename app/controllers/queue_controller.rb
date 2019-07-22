@@ -10,7 +10,7 @@ class QueueController < ApplicationController
         #this should be changed so it's based on the current position relative to everyone else
         @initialPos = Guest.where(accessCode: Guest.find_by(id: cookies.signed[:guest_id]).accessCode).size.to_s 
     end
-
+    
     private
         def check_guest_logged_in
             unless guest_logged_in?

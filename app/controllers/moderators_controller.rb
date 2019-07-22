@@ -26,9 +26,15 @@ class ModeratorsController < ApplicationController
     def shutdown
         @mod = Moderator.find_by(id: session[:moderator_id]);
         @guest = Guest.find_by(id: session[:guest_id]);
+        
+        guestsInQueue =  Guest.where(accessCode: @mod.accessCode)
+        if guestsInQueue.size > 0
+            ActionCable.server.broadcast "moderators_channel_#{@mod.accessCode}", modName: @mod.name #broadcast that Queue is shut down
+        end
         Room.delete((@mod.accessCode))
         redirect_to join_url
     end
+
     def next
         @mod = Moderator.find_by(id: session[:moderator_id]);
         guestsInQueue = Guest.where(accessCode: @mod.accessCode)
