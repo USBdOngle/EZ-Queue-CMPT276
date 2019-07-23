@@ -14,11 +14,13 @@
           <button onclick="window.location.href=#" class="button">Push to Back</button>
           <br>
           <br>
-          <button onclick="window.location.href=#" class="button">Shutdown</button>
+          <%= link_to 'Shutdown', shutdown_path, remote: true, method: :post, rel: "nofollow", :class=>"button", data: { confirm: "You sure?" } %>
+
           <button onclick = "window.location.href='../help.html'" class ="button small-button bottom-corner"> Help </button>
           
-
         </div><!-- End .primary-content-->
 
   </body>
 </html>
+
+

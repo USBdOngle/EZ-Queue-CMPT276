@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
   get 'guest' => 'queue#guestQueue'
   get 'mod' => 'moderators#modQueue'
+  
   post 'next' => 'moderators#next'
+
+  post 'shutdown' => 'moderators#shutdown'
 
   mount ActionCable.server, at: '/cable'
 
